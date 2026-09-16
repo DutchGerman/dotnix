@@ -35,8 +35,11 @@ Update these values before applying the configuration:
 ### 4. Check and apply
 
 ```sh
-nix --extra-experimental-features 'nix-command flakes' flake check
-sudo env NIX_CONFIG='extra-experimental-features = nix-command flakes' nixos-rebuild switch --flake .#nixos
+nix --extra-experimental-features 'nix-command flakes' shell nixpkgs#git \
+  --command nix --extra-experimental-features 'nix-command flakes' flake check
+sudo nix --extra-experimental-features 'nix-command flakes' shell nixpkgs#git \
+  --command env NIX_CONFIG='extra-experimental-features = nix-command flakes' \
+  nixos-rebuild switch --flake .#nixos
 ```
 
 Log out, choose the Niri session in GDM, and log back in.
@@ -47,6 +50,9 @@ SSH private keys are intentionally not stored in this repository. Add them to
 ## Updating
 
 ```sh
-nix --extra-experimental-features 'nix-command flakes' flake update
-sudo env NIX_CONFIG='extra-experimental-features = nix-command flakes' nixos-rebuild switch --flake .#nixos
+nix --extra-experimental-features 'nix-command flakes' shell nixpkgs#git \
+  --command nix --extra-experimental-features 'nix-command flakes' flake update
+sudo nix --extra-experimental-features 'nix-command flakes' shell nixpkgs#git \
+  --command env NIX_CONFIG='extra-experimental-features = nix-command flakes' \
+  nixos-rebuild switch --flake .#nixos
 ```
