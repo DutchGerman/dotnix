@@ -12,6 +12,9 @@
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "vscode" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   services.displayManager.gdm.enable = true;
