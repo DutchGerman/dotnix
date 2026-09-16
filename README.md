@@ -13,7 +13,7 @@ shells for tools that may not be installed yet.
 Replace the URL with your Git repository URL:
 
 ```sh
-nix --extra-experimental-features 'nix-command flakes' shell nixpkgs#git --command git clone git@github.com:DutchGerman/dotnix.git ~/dotnix
+nix --extra-experimental-features 'nix-command flakes' shell nixpkgs#git --command git clone https://github.com/DutchGerman/dotnix.git ~/dotnix
 cd ~/dotnix
 ```
 
