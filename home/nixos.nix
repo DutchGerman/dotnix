@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "25.11";
 
-  home.packages = with pkgs; [ vscode gh opencode git-lfs just unzip zip ];
+  home.packages = with pkgs; [ vscode gh opencode foot git-lfs just unzip zip ];
   programs.home-manager.enable = true;
 
   programs.git = {
