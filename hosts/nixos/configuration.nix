@@ -41,7 +41,6 @@
 
   programs.zsh.enable = true;
   programs.git.enable = true;
-  programs.ssh.startAgent = true;
 
   environment.systemPackages = with pkgs; [
     curl wget unzip zip tree htop btop ripgrep fd jq fastfetch wl-clipboard
