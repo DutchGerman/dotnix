@@ -13,7 +13,7 @@ shells for tools that may not be installed yet.
 Replace the URL with your Git repository URL:
 
 ```sh
-nix shell nixpkgs#git --command git clone git@github.com:DutchGerman/dotnix.git ~/dotnix
+nix --extra-experimental-features 'nix-command flakes' shell nixpkgs#git --command git clone git@github.com:DutchGerman/dotnix.git ~/dotnix
 cd ~/dotnix
 ```
 
@@ -35,8 +35,8 @@ Update these values before applying the configuration:
 ### 4. Check and apply
 
 ```sh
-nix flake check
-sudo nixos-rebuild switch --flake .#nixos
+nix --extra-experimental-features 'nix-command flakes' flake check
+sudo env NIX_CONFIG='extra-experimental-features = nix-command flakes' nixos-rebuild switch --flake .#nixos
 ```
 
 Log out, choose the Niri session in GDM, and log back in.
@@ -47,6 +47,6 @@ SSH private keys are intentionally not stored in this repository. Add them to
 ## Updating
 
 ```sh
-nix flake update
-sudo nixos-rebuild switch --flake .#nixos
+nix --extra-experimental-features 'nix-command flakes' flake update
+sudo env NIX_CONFIG='extra-experimental-features = nix-command flakes' nixos-rebuild switch --flake .#nixos
 ```
