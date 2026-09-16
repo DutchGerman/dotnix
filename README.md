@@ -1,6 +1,6 @@
 # NixOS laptop dotfiles
 
-Flake-based NixOS configuration for the `nixos` user, with Niri + Noctalia,
+Flake-based NixOS configuration for the `svisser` user, with Niri + Noctalia,
 Git/GitHub CLI, SSH tools, VS Code, OpenCode, and common laptop essentials.
 
 ## Install

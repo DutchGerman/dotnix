@@ -18,7 +18,7 @@
   outputs = { self, nixpkgs, home-manager, noctalia, ... }:
     let
       system = "x86_64-linux";
-      username = "visser";
+      username = "svisser";
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
