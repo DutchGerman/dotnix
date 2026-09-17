@@ -42,6 +42,12 @@
             "Mod+Shift+1".move-column-to-workspace = 1;
             "Mod+Shift+2".move-column-to-workspace = 2;
             "Mod+Shift+3".move-column-to-workspace = 3;
+            "Mod+F".maximize-column = _: { };
+            "Mod+Shift+F".fullscreen-window = _: { };
+            "Mod+Equal".set-column-width = "+10%";
+            "Mod+Minus".set-column-width = "-10%";
+            "Mod+Shift+Equal".set-window-height = "+10%";
+            "Mod+Shift+Minus".set-window-height = "-10%";
             "Print".screenshot = _: { };
           };
         };
