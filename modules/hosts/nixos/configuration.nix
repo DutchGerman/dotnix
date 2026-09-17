@@ -6,6 +6,7 @@
       imports = [
         ../../../hosts/nixos/hardware-configuration.nix
         self.nixosModules.base
+        self.nixosModules.foot
         self.nixosModules.niri
         self.nixosModules.noctalia
         self.nixosModules.git
@@ -14,6 +15,7 @@
         self.nixosModules.opencode
         self.nixosModules.firefox
         self.nixosModules.environment
+        self.nixosModules.zsh
         self.nixosModules.ssh
       ];
     };

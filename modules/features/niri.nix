@@ -5,9 +5,6 @@
     {
       services.displayManager.gdm.enable = true;
       services.gnome.gnome-keyring.enable = true;
-      environment.systemPackages = [
-        self.packages.${pkgs.stdenv.hostPlatform.system}.foot
-      ];
 
       programs.niri = {
         enable = true;
@@ -17,10 +14,6 @@
 
   perSystem = { pkgs, lib, self', ... }:
     {
-      packages.foot = inputs.wrapper-modules.wrappers.foot.wrap {
-        inherit pkgs;
-      };
-
       packages.niri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
         settings = {
