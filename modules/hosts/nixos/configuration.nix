@@ -12,6 +12,7 @@
         self.nixosModules.gh
         self.nixosModules.vscode
         self.nixosModules.opencode
+        self.nixosModules.firefox
         self.nixosModules.environment
         self.nixosModules.ssh
       ];

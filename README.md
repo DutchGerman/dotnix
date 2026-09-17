@@ -61,6 +61,7 @@ is loaded as a flake module automatically.
 - `modules/features/gh.nix` installs the GitHub CLI.
 - `modules/features/vscode.nix` installs VS Code.
 - `modules/features/opencode.nix` installs OpenCode.
+- `modules/features/firefox.nix` enables Firefox.
 - `modules/features/ssh.nix` contains OpenSSH and SSH management tools.
 - `modules/features/environment.nix` defines the wrapped login environment and
   Wayland variables.
