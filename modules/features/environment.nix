@@ -27,10 +27,12 @@
     in {
       users.users.svisser.shell = shellPath;
       environment.shells = [ shellPath ];
-      environment.sessionVariables = {
-        NIXOS_OZONE_WL = "1";
-        MOZ_ENABLE_WAYLAND = "1";
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      };
+        environment.sessionVariables = {
+          NIXOS_OZONE_WL = "1";
+          MOZ_ENABLE_WAYLAND = "1";
+          ELECTRON_OZONE_PLATFORM_HINT = "auto";
+          XDG_CURRENT_DESKTOP = "GNOME";
+          XDG_SESSION_DESKTOP = "niri";
+        };
     };
 }

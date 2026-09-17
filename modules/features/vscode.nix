@@ -16,6 +16,10 @@
         flags = {
           "--password-store" = "gnome-libsecret";
         };
+        env = {
+          XDG_CURRENT_DESKTOP = "GNOME";
+          XDG_SESSION_DESKTOP = "niri";
+        };
       };
     };
 }
