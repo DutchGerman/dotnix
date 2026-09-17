@@ -11,6 +11,7 @@
         self.nixosModules.noctalia
         self.nixosModules.git
         self.nixosModules.gh
+        self.nixosModules.howdy
         self.nixosModules.vscode
         self.nixosModules.opencode
         self.nixosModules.firefox
