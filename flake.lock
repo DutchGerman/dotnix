@@ -64,6 +64,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-opencode": {
+      "locked": {
+        "lastModified": 1789019473,
+        "narHash": "sha256-oDJg4FdHB23JUNXq7cKGplgKZ6esdp5iH4obSxtqFj8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b1822af09f8d709b9259f63d420d184037ce1d3a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "b1822af",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1788431191,
@@ -105,6 +121,7 @@
         "flake-parts": "flake-parts",
         "import-tree": "import-tree",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-opencode": "nixpkgs-opencode",
         "noctalia": "noctalia",
         "wrapper-modules": "wrapper-modules"
       }

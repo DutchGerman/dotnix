@@ -5,7 +5,9 @@
     {
       services.displayManager.gdm.enable = true;
       services.gnome.gnome-keyring.enable = true;
-      environment.systemPackages = [ pkgs.foot ];
+      environment.systemPackages = [
+        self.packages.${pkgs.stdenv.hostPlatform.system}.foot
+      ];
 
       programs.niri = {
         enable = true;
@@ -13,8 +15,12 @@
       };
     };
 
-  perSystem = { pkgs, lib, ... }:
+  perSystem = { pkgs, lib, self', ... }:
     {
+      packages.foot = inputs.wrapper-modules.wrappers.foot.wrap {
+        inherit pkgs;
+      };
+
       packages.niri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
         settings = {
@@ -29,7 +35,7 @@
           prefer-no-csd = true;
           screenshot-path = "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png";
           binds = {
-            "Mod+Return".spawn-sh = lib.getExe pkgs.foot;
+            "Mod+Return".spawn-sh = lib.getExe self'.packages.foot;
             "Mod+D".spawn-sh = "${lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default} ipc call launcher toggle";
             "Mod+Q".close-window = _: { };
             "Mod+Shift+E".quit = _: { };

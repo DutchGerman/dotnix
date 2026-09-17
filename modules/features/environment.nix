@@ -3,9 +3,8 @@
 {
   perSystem = { pkgs, lib, self', ... }:
     {
-      packages.environment = inputs.wrapper-modules.lib.wrapPackage {
+      packages.environment = inputs.wrapper-modules.wrappers.zsh.wrap {
         inherit pkgs;
-        package = pkgs.zsh;
         runtimePkgs = with pkgs; [
           curl wget unzip zip tree htop btop ripgrep fd jq fastfetch
           openssh sshfs keychain seahorse wl-clipboard
