@@ -1,0 +1,23 @@
+diff --git a/src/common/config/buildConfig.ts b/src/common/config/buildConfig.ts
+index 7de19e0..862519e 100644
+--- a/src/common/config/buildConfig.ts
++++ b/src/common/config/buildConfig.ts
+@@ -24,12 +24,12 @@ import {DEFAULT_ACADEMY_LINK, DEFAULT_HELP_LINK, DEFAULT_UPGRADE_LINK} from '../
+  * @prop {[]} trustedEmbeddedMediaOrigins - Explicit origin pairs that may share media permissions for embedded content
+  */
+ const buildConfig: BuildConfig = {
+-    defaultServers: [/*
+-    {
+-      name: 'example',
+-      url: 'https://example.com'
+-    }
+-  */],
++    defaultServers: [
++        {
++            name: "apm E-Campus",
++            url: "https://mattermost.apm-ecampus.de",
++        },
++    ],
+     helpLink: DEFAULT_HELP_LINK,
+     academyLink: DEFAULT_ACADEMY_LINK,
+     upgradeLink: DEFAULT_UPGRADE_LINK,
