@@ -12,7 +12,15 @@
     {
       packages.vscode = inputs.wrapper-modules.lib.wrapPackage {
         inherit pkgs;
-        package = pkgs.vscode;
+        package = pkgs.vscode-with-extensions.override {
+          vscodeExtensions = [
+            pkgs.vscode-extensions.jnoortheen.nix-ide
+          ];
+        };
+        runtimePkgs = [
+          pkgs.nixd
+          pkgs.nixfmt
+        ];
         flags = {
           "--password-store" = "gnome-libsecret";
         };
