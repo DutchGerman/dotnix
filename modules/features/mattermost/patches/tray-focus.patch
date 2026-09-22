@@ -16,7 +16,7 @@ index 01d4e28..ae73205 100644
          }
  
 +        try {
-+            execFileSync('mattermost-focus');
++            execFileSync(process.env.MATTERMOST_FOCUS_COMMAND ?? 'mattermost-focus');
 +            return;
 +        } catch {}
 +
