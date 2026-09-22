@@ -1,7 +1,27 @@
 { inputs, self, ... }:
 
 {
-  perSystem = { pkgs, ... }:
+  perSystem = { pkgs, lib, ... }:
+    let
+      mattermost-focus = pkgs.writeShellApplication {
+        name = "mattermost-focus";
+        runtimeInputs = [ pkgs.niri pkgs.nushell ];
+        text = ''
+          # shellcheck disable=SC2016
+          nu -c '
+            let window = (niri msg --json windows | from json | where { |window|
+              (($window.app_id? | default "" | str lowercase) == "mattermost.desktop")
+            } | get 0?)
+
+            if ($window | is-empty) {
+              exit 1
+            }
+
+            niri msg action focus-window --id $window.id
+          '
+        '';
+      };
+    in
     {
       packages.mattermost-desktop = inputs.wrapper-modules.lib.wrapPackage {
         inherit pkgs;
@@ -22,6 +42,12 @@
               open --raw $path
               | str replace --all --regex "(?s)defaultServers: \\[/\\*.*?\\*/\\]," $servers
               | save --force $path
+
+            let tray_path = "src/app/system/tray/tray.ts"
+            open --raw $tray_path
+            | str replace --regex "import path from .path.;" "import {execFileSync} from \"child_process\";\n\nimport path from \"path\";"
+            | str replace "        // At minimum show the main window\n        MainWindow.show();" "        try {\n            execFileSync(\"${lib.getExe mattermost-focus}\");\n            return;\n        } catch {\n            // No Mattermost window is currently mapped; create one below.\n        }\n\n        // At minimum show the main window\n        MainWindow.show();"
+            | save --force $tray_path
             '
           '';
           postFixup = (old.postFixup or "") + ''
