@@ -40,9 +40,13 @@
             "Mod+Q".close-window = _: { };
             "Mod+Shift+E".quit = _: { };
             "Mod+H".focus-column-left = _: { };
+            "Mod+Left".focus-column-left = _: { };
             "Mod+J".focus-window-down = _: { };
             "Mod+K".focus-window-up = _: { };
             "Mod+L".focus-column-right = _: { };
+            "Mod+Right".focus-column-right = _: { };
+            "Mod+Down".focus-workspace-down = _: { };
+            "Mod+Up".focus-workspace-up = _: { };
             "Mod+1".focus-workspace = 1;
             "Mod+2".focus-workspace = 2;
             "Mod+3".focus-workspace = 3;
