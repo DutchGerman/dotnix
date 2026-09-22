@@ -9,6 +9,7 @@
         self.nixosModules.foot
         self.nixosModules.niri
         self.nixosModules.noctalia
+        self.nixosModules.mattermost
         self.nixosModules.git
         self.nixosModules.gh
         self.nixosModules.howdy
