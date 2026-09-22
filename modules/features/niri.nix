@@ -3,8 +3,15 @@
 {
   flake.nixosModules.niri = { pkgs, ... }:
     {
-      services.displayManager.gdm.enable = true;
+      services.displayManager.noctalia-greeter = {
+        enable = true;
+        settings.auth = {
+          allow_empty_password = true;
+          request_timeout = 0;
+        };
+      };
       services.gnome.gnome-keyring.enable = true;
+      security.pam.services.login.howdy.enable = false;
 
       programs.niri = {
         enable = true;
