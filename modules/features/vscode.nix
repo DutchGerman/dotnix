@@ -15,6 +15,7 @@
         package = pkgs.vscode-with-extensions.override {
           vscodeExtensions = [
             pkgs.vscode-extensions.jnoortheen.nix-ide
+            pkgs.vscode-extensions.thenuprojectcontributors.vscode-nushell-lang
           ];
         };
         runtimePkgs = [
