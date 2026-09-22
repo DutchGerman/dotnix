@@ -35,7 +35,7 @@
       hardware.bluetooth.enable = true;
 
       environment.systemPackages = with pkgs; [
-        curl wget unzip zip tree htop btop ripgrep fd jq fastfetch wl-clipboard
+        curl wget unzip zip tree htop btop ripgrep fd jq fastfetch wl-clipboard nushell
       ];
 
       nix.settings.experimental-features = [ "nix-command" "flakes" ];
