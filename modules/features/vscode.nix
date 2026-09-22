@@ -16,6 +16,7 @@
           vscodeExtensions = [
             pkgs.vscode-extensions.jnoortheen.nix-ide
             pkgs.vscode-extensions.thenuprojectcontributors.vscode-nushell-lang
+            pkgs.vscode-extensions.vue.volar
           ];
         };
         runtimePkgs = [
