@@ -21,6 +21,10 @@
             bold-text-in-bright = "yes";
           };
           scrollback.lines = 10000;
+          key-bindings = {
+            clipboard-copy = "Control+c";
+            clipboard-paste = "Control+v";
+          };
           cursor = {
             style = "beam";
             blink = "yes";
