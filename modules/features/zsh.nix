@@ -35,10 +35,12 @@
           eval "$(${lib.getExe self'.packages.starship} init zsh)"
           source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-          alias ls='eza --group-directories-first'
-          alias ll='eza --long --git --group-directories-first'
-          alias cat='bat'
-        '';
+           alias ls='eza --group-directories-first'
+           alias ll='eza --long --git --group-directories-first'
+           alias cat='bat'
+           alias dotnix='cd ~/dotnix'
+           alias rebuild='sudo nixos-rebuild switch --flake ~/dotnix#work-laptop'
+         '';
       };
     };
 
