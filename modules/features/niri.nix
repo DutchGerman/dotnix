@@ -2,12 +2,42 @@
 
 {
   flake.nixosModules.niri = { pkgs, ... }:
+    let
+      autumnDark = (builtins.fromJSON (builtins.readFile ./noctalia/themes/autumn/palette.json)).dark;
+    in
     {
       services.displayManager.noctalia-greeter = {
         enable = true;
         settings.auth = {
           allow_empty_password = true;
           request_timeout = 0;
+        };
+        settings.appearance = {
+          scheme = "Synced";
+          theme_mode = "dark";
+          scheme_selector_position = "hidden";
+          palette = {
+            primary = autumnDark.mPrimary;
+            on_primary = autumnDark.mOnPrimary;
+            secondary = autumnDark.mSecondary;
+            on_secondary = autumnDark.mOnSecondary;
+            tertiary = autumnDark.mTertiary;
+            on_tertiary = autumnDark.mOnTertiary;
+            error = autumnDark.mError;
+            on_error = autumnDark.mOnError;
+            surface = autumnDark.mSurface;
+            on_surface = autumnDark.mOnSurface;
+            surface_variant = autumnDark.mSurfaceVariant;
+            on_surface_variant = autumnDark.mOnSurfaceVariant;
+            outline = autumnDark.mOutline;
+            shadow = autumnDark.mShadow;
+            hover = autumnDark.mHover;
+            on_hover = autumnDark.mOnHover;
+          };
+          wallpaper = {
+            path = "${./noctalia/themes/autumn/night.jpg}";
+            fill_mode = "crop";
+          };
         };
       };
       services.gnome.gnome-keyring.enable = true;
@@ -20,6 +50,9 @@
     };
 
   perSystem = { pkgs, lib, self', ... }:
+    let
+      autumnLight = (builtins.fromJSON (builtins.readFile ./noctalia/themes/autumn/palette.json)).light;
+    in
     {
       packages.niri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
@@ -32,8 +65,19 @@
           layout.gaps = 8;
           layout.center-focused-column = "never";
           layout.default-column-width.proportion = 0.5;
+          layout.focus-ring = {
+            width = 3;
+            active-color = autumnLight.mPrimary;
+            inactive-color = autumnLight.mSurfaceVariant;
+            urgent-color = autumnLight.mError;
+          };
           prefer-no-csd = true;
           screenshot-path = "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png";
+          window-rules = [
+            {
+              opacity = 0.96;
+            }
+          ];
           binds = {
             "Mod+Return".spawn-sh = lib.getExe self'.packages.foot;
             "Mod+D".spawn-sh = "${lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default} ipc call launcher toggle";
