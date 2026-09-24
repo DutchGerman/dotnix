@@ -9,13 +9,14 @@
       ];
     };
 
-  perSystem = { pkgs, ... }:
+  perSystem = { pkgs, self', ... }:
     {
       packages.foot = inputs.wrapper-modules.wrappers.foot.wrap {
         inherit pkgs;
         settings = {
           main = {
             font = "JetBrains Mono:size=13";
+            shell = "${self'.packages.zsh}/bin/zsh";
             pad = "10x10";
             dpi-aware = "yes";
             bold-text-in-bright = "yes";

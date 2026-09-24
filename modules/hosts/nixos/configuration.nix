@@ -17,6 +17,7 @@
         self.nixosModules.opencode
         self.nixosModules.firefox
         self.nixosModules.environment
+        self.nixosModules.direnv
         self.nixosModules.zsh
         self.nixosModules.ssh
       ];

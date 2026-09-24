@@ -7,7 +7,8 @@
         inherit pkgs;
         runtimePkgs = with pkgs; [
           curl wget unzip zip tree htop btop ripgrep fd jq fastfetch
-          bat eza zoxide zsh-autosuggestions zsh-syntax-highlighting
+           bat eza zoxide zsh-autosuggestions zsh-syntax-highlighting
+           direnv
           openssh sshfs keychain seahorse wl-clipboard
           self'.packages.git
           self'.packages.starship
@@ -31,8 +32,9 @@
           compinit
 
           source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-          eval "$(${lib.getExe pkgs.zoxide} init zsh)"
-          eval "$(${lib.getExe self'.packages.starship} init zsh)"
+           eval "$(${lib.getExe pkgs.zoxide} init zsh)"
+           eval "$(${lib.getExe pkgs.direnv} hook zsh)"
+           eval "$(${lib.getExe self'.packages.starship} init zsh)"
           source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
            alias ls='eza --group-directories-first'
