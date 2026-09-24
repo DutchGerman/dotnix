@@ -62,7 +62,7 @@
           ];
           xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
           input.keyboard.xkb.layout = "us";
-          layout.gaps = 8;
+          layout.gaps = 16;
           layout.center-focused-column = "never";
           layout.default-column-width.proportion = 0.5;
           layout.focus-ring = {
@@ -75,7 +75,10 @@
           screenshot-path = "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png";
           window-rules = [
             {
-              opacity = 0.96;
+              opacity = 0.90;
+              geometry-corner-radius = 12;
+              clip-to-geometry = true;
+              background-effect.blur = true;
             }
           ];
           binds = {
