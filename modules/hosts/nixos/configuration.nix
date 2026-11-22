@@ -17,6 +17,7 @@
         self.nixosModules.foot
         self.nixosModules.niri
         self.nixosModules.noctalia
+        self.nixosModules.luciole
         self.nixosModules.mattermost
         self.nixosModules.git
         self.nixosModules.gh

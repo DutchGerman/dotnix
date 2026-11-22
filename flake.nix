@@ -13,6 +13,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    luciole.url = "github:noctalia-dev/luciole";
+
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
   };
 
