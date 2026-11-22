@@ -1,16 +1,8 @@
-{ self, ... }:
+{ ... }:
 
 {
-  flake.nixosModules.nixosConfiguration = { self, inputs, username, pkgs, ... }:
+  flake.nixosModules.nixosConfiguration = { self, ... }:
     {
-      services.udisks2.enable = true;
-      environment.systemPackages = [ pkgs.udiskie ];
-      systemd.user.services.udiskie = {
-        description = "Automount removable media";
-        wantedBy = [ "default.target" ];
-        serviceConfig.ExecStart = "${pkgs.udiskie}/bin/udiskie";
-      };
-
       imports = [
         ../../../hosts/nixos/hardware-configuration.nix
         self.nixosModules.base
@@ -18,6 +10,7 @@
         self.nixosModules.niri
         self.nixosModules.noctalia
         self.nixosModules.luciole
+        self.nixosModules.removable-media
         self.nixosModules.mattermost
         self.nixosModules.git
         self.nixosModules.gh
